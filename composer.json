@@ -1,0 +1,13 @@
+{
+    "name": "vendor/zendfw2-1",
+    "description": null,
+    "authors": [
+        {
+            "name": "gilcierweb",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {
+
+    }
+}

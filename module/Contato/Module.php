@@ -6,6 +6,13 @@
 
 namespace Contato;
 
+// import Contato\Model
+use Contato\Model\Contato,
+    Contato\Model\ContatoTable;
+// import Zend\Db
+use Zend\Db\ResultSet\ResultSet,
+    Zend\Db\TableGateway\TableGateway;
+
 class Module
 {
 
@@ -40,8 +47,8 @@ class Module
             # registrar View Helper com injecao de dependencia
             'factories' => array(
                 'menuAtivo' => function($sm) {
-                    return new View\Helper\MenuAtivo($sm->getServiceLocator()->get('Request'));
-                },
+            return new View\Helper\MenuAtivo($sm->getServiceLocator()->get('Request'));
+        },
             )
         );
     }

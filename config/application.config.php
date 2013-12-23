@@ -8,7 +8,7 @@
 return array(
     'modules' => array(
         'Application',
-        'Adm',
+        'Adm', // module admin esta causando erro que ainda não sei o que. descobrir o que era tinha referencia ao modulo contato no module.config adm não pode
         'Site',
         'Core',
         'Contato'

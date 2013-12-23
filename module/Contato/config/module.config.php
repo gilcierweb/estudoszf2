@@ -12,16 +12,16 @@ return array(
     'router' => array(
         'routes' => array(
             # literal para action index home
-//            'home' => array(
-//                'type' => 'Literal',
-//                'options' => array(
-//                    'route' => '/',
-//                    'defaults' => array(
-//                        'controller' => 'HomeController',
-//                        'action' => 'index',
-//                    ),
-//                ),
-//            ),
+            'home' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route' => '/',
+                    'defaults' => array(
+                        'controller' => 'HomeController',
+                        'action' => 'index',
+                    ),
+                ),
+            ),
             # literal para action sobre home
             'sobre' => array(
                 'type' => 'Literal',
@@ -33,32 +33,19 @@ return array(
                     ),
                 ),
             ),
-            'home' => array(
-                'type' => 'segment',
+            # segment para controller contatos
+            'contatos' => array(
+                'type' => 'Segment',
                 'options' => array(
-                    'route' => '/home[/:action][/:id]',
+                    'route' => '/contatos[/:action][/:id]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id' => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'HomeController',
+                        'controller' => 'ContatosController',
                         'action' => 'index',
                     ),
-                )
-            )
-        ),
-        # segment para controller contatos
-        'contatos' => array(
-            'type' => 'Segment',
-            'options' => array(
-                'route' => '/contatos[/:action][/:id]',
-                'constraints' => array(
-                    'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                    'id' => '[0-9]+',
-                ),
-                'defaults' => array(
-                    'controller' => 'ContatosController',
-                    'action' => 'index',
                 ),
             ),
         ),

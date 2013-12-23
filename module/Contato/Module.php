@@ -31,4 +31,19 @@ class Module
         );
     }
 
+    /**
+     * Register View Helper
+     */
+//    public function getViewHelperConfig()
+//    {
+//        return array(
+//            # registrar View Helper com injecao de dependecia
+//            'factories' => array(
+//                'MenuAtivo' => function($sm) {
+//                    return new View\Helper\MenuAtivo($sm->getServiceLocator()->get('Request'));
+//                },
+//            )
+//        );
+//    }
+
 }

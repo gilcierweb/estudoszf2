@@ -1,9 +1,5 @@
 <?php
 
-/**
- * namespace de localizacao do nosso controller
- */
-
 namespace Contato\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
@@ -17,6 +13,15 @@ class HomeController extends AbstractActionController
      * @return \Zend\View\Model\ViewModel
      */
     public function indexAction()
+    {
+        return new ViewModel();
+    }
+
+    /**
+     * action sobre
+     * @return \Zend\View\Model\ViewModel
+     */
+    public function sobreAction()
     {
         return new ViewModel();
     }

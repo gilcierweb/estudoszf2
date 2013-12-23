@@ -39,14 +39,15 @@
                 <ul class="nav nav-pills pull-right">
                     <ul class="nav nav-pills pull-right">
                         <?php
-//                        $url_home = $this->url('home');
-//                        $url_sobre = $this->url('sobre');
+                        $url_home = $this->url('home');
+                        $url_sobre = $this->url('sobre');
+                       
                         ?>
-                        <li <?php // echo $this->menuAtivo($url_home); ?>>
-                            <a href="<?php // echo $url_home; ?>">Início</a>
+                        <li <?php echo $this->MenuAtivo($url_home); ?>>
+                            <a href="<?php echo $url_home; ?>">Início</a>
                         </li>
-                        <li <?php // echo $this->menuAtivo($url_sobre); ?>>
-                            <a href="<?php // echo $url_sobre; ?>">Sobre</a>
+                        <li <?php echo $this->MenuAtivo($url_sobre); ?>>
+                            <a href="<?php echo $url_sobre; ?>">Sobre</a>
                         </li>
                     </ul>
                     <h3 class="text-muted"><?php echo $NAME_APPLICATION; ?></h3>

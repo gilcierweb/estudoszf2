@@ -39,7 +39,7 @@ class Module
         return array(
             # registrar View Helper com injecao de dependencia
             'factories' => array(
-                'MenuAtivo' => function($sm) {
+                'menuAtivo' => function($sm) {
                     return new View\Helper\MenuAtivo($sm->getServiceLocator()->get('Request'));
                 },
             )

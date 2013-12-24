@@ -4,7 +4,12 @@ return array(
     # definir e gerenciar controllers
     'controllers' => array(
         'invokables' => array(
-            'HomeController' => 'Adm\Controller\HomeController',           
+            'BannersController' => 'Adm\Controller\BannersController',
+            'CategoriasController' => 'Adm\Controller\CategoriasController',
+            'GaleriasController' => 'Adm\Controller\GaleriasController',
+            'HomeController' => 'Adm\Controller\HomeController',
+            'ProdutosController' => 'Adm\Controller\ProdutosController',
+            'SubcategoriasController' => 'Adm\Controller\SubcategoriasController',
         ),
     ),
     # definir e gerenciar rotas
@@ -23,23 +28,100 @@ return array(
                         'module' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'id' => '[0-9]+',   
+                        'id' => '[0-9]+',
                     ),
                 ),
             ),
-             // Literal route named "banner"
-            'banner' => array(
-                'type' => 'literal',
+            # segment para controller banners
+            'banners' => array(
+                'type' => 'Segment',
                 'options' => array(
-                    'route' => 'banner',
+                    'route' => '/banners[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id' => '[0-9]+',
+                    ),
                     'defaults' => array(
                         'controller' => 'BannersController',
-                        'action' => 'index'
-                    )
-                )
-            )
-        ),
-    ),
+                        'action' => 'index',
+                    ),
+                ),
+            ),
+            # segment para controller categorias
+            'categorias' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/categorias[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id' => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'CategoriasController',
+                        'action' => 'index',
+                    ),
+                ),
+            ),
+            # segment para controller galerias
+            'galerias' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/galerias[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id' => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'GaleriasController',
+                        'action' => 'index',
+                    ),
+                ),
+            ),
+            # segment para controller home
+            'home' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/home[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id' => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'HomeController',
+                        'action' => 'index',
+                    ),
+                ),
+            ),
+            # segment para controller produtos
+            'produtos' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/produtos[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id' => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'ProdutosController',
+                        'action' => 'index',
+                    ),
+                ),
+            ),
+            # segment para controller subcategorias
+            'subcategorias' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/subcategorias[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id' => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'SubcategoriasController',
+                        'action' => 'index',
+                    ),
+                ),
+            ),
 //    'router' => array(
 //        'routes' => array(
 //            'home' => array(
@@ -57,7 +139,8 @@ return array(
 //                ),
 //            ),
 //        ),
-//    ),
+        ),
+    ),
     # definir e gerenciar servicos
     'service_manager' => array(
         'factories' => array(

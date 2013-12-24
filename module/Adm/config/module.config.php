@@ -111,7 +111,7 @@ return array(
             'subcategorias' => array(
                 'type' => 'Segment',
                 'options' => array(
-                    'route' => '/subcategorias[/:action][/:id]',
+                    'route' => '/adm/subcategorias[/:action][/:id]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id' => '[0-9]+',

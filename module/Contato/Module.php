@@ -6,6 +6,7 @@
 
 namespace Contato;
 
+use Contato\View\Helper\AbsoluteUrl;
 // import Contato\Model
 use Contato\Model\Contato,
     Contato\Model\ContatoTable;
@@ -44,6 +45,11 @@ class Module
     public function getViewHelperConfig()
     {
         return array(
+            'invokables' => array(
+                'menuAtivo' => 'Contato\View\Helper\MenuAtivo',
+                'message' => 'Contato\View\Helper\Message',
+                'absoluteUrl' => 'Contato\View\Helper\AbsoluteUrl',
+            ),
             # registrar View Helper com injecao de dependencia
             'factories' => array(
                 'menuAtivo' => function($sm) {
@@ -51,6 +57,11 @@ class Module
         },
                 'message' => function($sm) {
             return new View\Helper\Message($sm->getServiceLocator()->get('ControllerPluginManager')->get('flashmessenger'));
+        },
+                // the array key here is the name you will call the view helper by in your view scripts
+                'absoluteUrl' => function($sm) {
+            $locator = $sm->getServiceLocator(); // $sm is the view helper manager, so we need to fetch the main service manager
+            return new AbsoluteUrl($locator->get('Request'));
         },
             )
         );

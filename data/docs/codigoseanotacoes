@@ -21,3 +21,6 @@ return array(
         'config_glob_paths' => array('config/autoload/{,*.}{global,local}.php')
         )
     );
+
+
+ $adapter = $this->getServiceLocator()->get('AdapterDb'); //o Service Locator é um localizador de serviços e objetos registrados no Service Manager.

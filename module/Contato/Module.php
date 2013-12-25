@@ -6,8 +6,8 @@
 
 namespace Contato;
 
-use Contato\View\Helper\AbsoluteUrl;
-// import Contato\Model
+//use Contato\View\Helper\AbsoluteUrl;
+// import Model\Contato
 use Contato\Model\Contato,
     Contato\Model\ContatoTable;
 // import Zend\Db
@@ -63,6 +63,32 @@ class Module
             $locator = $sm->getServiceLocator(); // $sm is the view helper manager, so we need to fetch the main service manager
             return new AbsoluteUrl($locator->get('Request'));
         },
+            )
+        );
+    }
+
+    /**
+     * Register Services
+     */
+    public function getServiceConfig()
+    {
+        return array(
+            'factories' => array(
+                'ContatoTableGateway' => function ($sm) {
+            // obter adapter db atraves do service manager
+            $adapter = $sm->get('AdapterDb');
+
+            // configurar ResultSet com nosso model Contato
+            $resultSetPrototype = new ResultSet();
+            $resultSetPrototype->setArrayObjectPrototype(new Contato());
+
+            // return TableGateway configurado para nosso model Contato
+            return new TableGateway('contatos', $adapter, null, $resultSetPrototype);
+        },
+                'ModelContato' => function ($sm) {
+            // return instacia Model ContatoTable
+            return new ContatoTable($sm->get('ContatoTableGateway'));
+        }
             )
         );
     }

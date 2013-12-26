@@ -5,9 +5,7 @@
 namespace Contato\Model;
 
 // import Zend\Db
-use //Zend\Db\Adapter\Adapter,
-    //Zend\Db\ResultSet\ResultSet,
-    Zend\Db\TableGateway\TableGateway;
+use Zend\Db\TableGateway\TableGateway;
 
 class ContatoTable
 {

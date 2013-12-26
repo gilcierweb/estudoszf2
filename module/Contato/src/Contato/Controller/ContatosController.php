@@ -160,11 +160,10 @@ class ContatosController extends AbstractActionController
      */
     private function getContatoTable()
     {
-          // adicionar service ModelContato a variavel de classe
-        if (!$this->contatoTable)
-            $this->contatoTable = $this->getServiceLocator()->get('ModelContato');
- 
-        // return vairavel de classe com service ModelContato
+       if (!$this->contatoTable) {
+            $sm = $this->getServiceLocator();
+            $this->contatoTable = $sm->get('Contato\Model\ContatoTable');
+        }
         return $this->contatoTable;
     }
 

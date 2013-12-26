@@ -18,10 +18,14 @@ return array(
         'driver_options' => array(
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
         ),
+       
     ),
     'service_manager' => array(
         'factories' => array(
-            'AdapterDb' => 'Zend\Db\Adapter\AdapterServiceFactory', // new \Zend\Db\Adapter\AdapterServiceFactory
+            'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',             
         ),
+//        'aliases' => array(
+//            'AdapterDb' => 'Zend\Db\Adapter\Adapter',
+//        ),
     ),
 );

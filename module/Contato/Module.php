@@ -70,42 +70,62 @@ class Module
     /**
      * Register Services
      */
-    public function getServiceConfig()
-    {
+//    public function getServiceConfig()
+//    {
+////        return array(
+////            'factories' => array(
+////                'ContatoTableGateway' => function ($sm) {
+////            // obter adapter db atraves do service manager
+////            $adapter = $sm->get('AdapterDb');
+////
+////            // configurar ResultSet com nosso model Contato
+////            $resultSetPrototype = new ResultSet();
+////            $resultSetPrototype->setArrayObjectPrototype(new Contato());
+////
+////            // return TableGateway configurado para nosso model Contato
+////            return new TableGateway('contatos', $adapter, null, $resultSetPrototype);
+////        },
+////                'ModelContato' => function ($sm) {
+////            // return instacia Model ContatoTable
+////            return new ContatoTable($sm->get('ContatoTableGateway'));
+////        }
+////            )
+////        );
 //        return array(
 //            'factories' => array(
-//                'ContatoTableGateway' => function ($sm) {
-//            // obter adapter db atraves do service manager
-//            $adapter = $sm->get('AdapterDb');
-//
-//            // configurar ResultSet com nosso model Contato
-//            $resultSetPrototype = new ResultSet();
-//            $resultSetPrototype->setArrayObjectPrototype(new Contato());
-//
-//            // return TableGateway configurado para nosso model Contato
-//            return new TableGateway('contatos', $adapter, null, $resultSetPrototype);
+//                'Contato\Model\ContatosTable' => function($sm) {
+//            $tableGateway = $sm->get('ContatosTableGateway');
+//            $table = new ContatosTable($tableGateway);
+//            return $table;
 //        },
-//                'ModelContato' => function ($sm) {
-//            // return instacia Model ContatoTable
-//            return new ContatoTable($sm->get('ContatoTableGateway'));
-//        }
-//            )
+//                'ContatosTableGateway' => function ($sm) {
+//            $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+//            $resultSetPrototype = new ResultSet();
+//            $resultSetPrototype->setArrayObjectPrototype(new \Contato\Model\Contatos());
+//            return new TableGateway('contatos', $dbAdapter, null, $resultSetPrototype);
+//        },
+//            ),
 //        );
-        return array(
-            'factories' => array(
-                'Contato\Model\ContatosTable' => function($sm) {
-            $tableGateway = $sm->get('ContatosTableGateway');
-            $table = new ContatosTable($tableGateway);
-            return $table;
-        },
-                'ContatosTableGateway' => function ($sm) {
-            $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
-            $resultSetPrototype = new ResultSet();
-            $resultSetPrototype->setArrayObjectPrototype(new Contatos());
-            return new TableGateway('Contatos', $dbAdapter, null, $resultSetPrototype);
-        },
-            ),
-        );
-    }
+//    }
+    
+     // Add this method:
+     public function getServiceConfig()
+     {
+         return array(
+             'factories' => array(
+                 'Contato\Model\ContatosTable' =>  function($sm) {
+                     $tableGateway = $sm->get('ContatosTableGateway');
+                     $table = new ContatosTable($tableGateway);
+                     return $table;
+                 },
+                 'ContatosTableGateway' => function ($sm) {
+                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+                     $resultSetPrototype = new ResultSet();
+                     $resultSetPrototype->setArrayObjectPrototype(new \Contato\Model\Contatos());
+                     return new TableGateway('contato', $dbAdapter, null, $resultSetPrototype);
+                 },
+             ),
+         );
+     }
 
 }

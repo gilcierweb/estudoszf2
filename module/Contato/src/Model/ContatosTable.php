@@ -18,9 +18,10 @@ class ContatosTable
      * @param \Zend\Db\TableGateway\TableGateway $tableGateway
      */
     public function __construct(TableGateway $tableGateway)
-    {
-        $this->tableGateway = $tableGateway;
-    }
+     {
+         $this->tableGateway = $tableGateway;
+     }
+
 
     /**
      * Recuperar todos os elementos da tabela contatos
@@ -29,7 +30,8 @@ class ContatosTable
      */
     public function fetchAll()
     {
-        return $this->tableGateway->select();
+       $resultSet = $this->tableGateway->select();
+         return $resultSet;
     }
 
     /**

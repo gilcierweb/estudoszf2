@@ -8,8 +8,8 @@ namespace Contato;
 
 //use Contato\View\Helper\AbsoluteUrl;
 // import Model\Contato
-use Contato\Model\Contato;
-use Contato\Model\ContatoTable;
+use Contato\Model\Contatos;
+use Contato\Model\ContatosTable;
 // import Zend\Db
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
@@ -93,15 +93,15 @@ class Module
 //        );
         return array(
             'factories' => array(
-                'Contato\Model\ContatoTable' => function($sm) {
-            $tableGateway = $sm->get('ContatoTableGateway');
-            $table = new ContatoTable($tableGateway);
+                'Contato\Model\ContatosTable' => function($sm) {
+            $tableGateway = $sm->get('ContatosTableGateway');
+            $table = new ContatosTable($tableGateway);
             return $table;
         },
-                'ContatoTableGateway' => function ($sm) {
+                'ContatosTableGateway' => function ($sm) {
             $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
             $resultSetPrototype = new ResultSet();
-            $resultSetPrototype->setArrayObjectPrototype(new Contato());
+            $resultSetPrototype->setArrayObjectPrototype(new Contatos());
             return new TableGateway('Contatos', $dbAdapter, null, $resultSetPrototype);
         },
             ),

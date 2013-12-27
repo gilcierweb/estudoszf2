@@ -162,7 +162,7 @@ class ContatosController extends AbstractActionController
     {
        if (!$this->contatoTable) {
             $sm = $this->getServiceLocator();
-            $this->contatoTable = $sm->get('Contato\Model\ContatoTable');
+            $this->contatoTable = $sm->get('Contato\Model\ContatosTable');
         }
         return $this->contatoTable;
     }

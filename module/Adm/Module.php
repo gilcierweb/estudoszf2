@@ -1,6 +1,10 @@
 <?php
 namespace Adm;
-
+ // Add these import statements:
+ use Adm\Model\Entity\Categorias;
+ use Adm\Model\Entity\CategoriasTable;
+ use Zend\Db\ResultSet\ResultSet;
+ use Zend\Db\TableGateway\TableGateway;
 class Module
 {
     public function getConfig()
@@ -18,4 +22,22 @@ class Module
             ),
         );
     }
+     public function getServiceConfig()
+     {
+         return array(
+             'factories' => array(
+                 'Adm\Model\Entity\CategoriasTable' =>  function($sm) {
+                     $tableGateway = $sm->get('CategoriasTableGateway');
+                     $table = new CategoriasTable($tableGateway);
+                     return $table;
+                 },
+                 'CategoriasTableGateway' => function ($sm) {
+                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+                     $resultSetPrototype = new ResultSet();
+                     $resultSetPrototype->setArrayObjectPrototype(new Categorias());
+                     return new TableGateway('categorias', $dbAdapter, null, $resultSetPrototype);
+                 },
+             ),
+         );
+     }
 }

@@ -7,7 +7,7 @@ namespace Contato\Model;
 // import Zend\Db
 use Zend\Db\TableGateway\TableGateway;
 
-class ContatoTable
+class ContatosTable
 {
 
     protected $tableGateway;

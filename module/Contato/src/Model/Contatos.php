@@ -2,7 +2,7 @@
 
 namespace Contato\Model;
 
-class Contato
+class Contatos
 {
 
     public $id;

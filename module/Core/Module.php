@@ -1,8 +1,19 @@
 <?php
+
 namespace Core;
 
 class Module
 {
+
+    public function getControllerConfig()
+    {
+        return array(
+            'abstract_factories' => array(
+                'Core\Service\AutoControllerInvokablesAbstractFactory' // invoca automaticamente todos os contollers
+            ),
+        );
+    }
+
     public function getConfig()
     {
         return include __DIR__ . '/config/module.config.php';
@@ -18,4 +29,5 @@ class Module
             ),
         );
     }
+
 }

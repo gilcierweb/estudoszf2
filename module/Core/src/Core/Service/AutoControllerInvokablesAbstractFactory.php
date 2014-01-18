@@ -10,11 +10,9 @@ namespace Core\Service;
 use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class AutoControllerInvokablesAbstractFactory implements AbstractFactoryInterface
-{
+class AutoControllerInvokablesAbstractFactory implements AbstractFactoryInterface {
 
-    public function canCreateServiceWithName(ServiceLocatorInterface $locator, $name, $requestedName)
-    {
+    public function canCreateServiceWithName(ServiceLocatorInterface $locator, $name, $requestedName) {
         if (class_exists($requestedName . 'Controller')) {
             return true;
         }
@@ -22,8 +20,7 @@ class AutoControllerInvokablesAbstractFactory implements AbstractFactoryInterfac
         return false;
     }
 
-    public function createServiceWithName(ServiceLocatorInterface $locator, $name, $requestedName)
-    {
+    public function createServiceWithName(ServiceLocatorInterface $locator, $name, $requestedName) {
         $class = $requestedName . 'Controller';
         return new $class;
     }

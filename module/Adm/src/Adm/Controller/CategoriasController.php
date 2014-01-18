@@ -12,7 +12,7 @@ class CategoriasController extends AbstractActionController
 
     public function indexAction()
     {
-                \Zend\Debug\Debug::dump($this->getCategoriaTable()->fetchAll());
+//                \Zend\Debug\Debug::dump($this->getCategoriaTable()->fetchAll());
         return new ViewModel(array(
              'categorias' => $this->getCategoriaTable()->fetchAll(),
          ));

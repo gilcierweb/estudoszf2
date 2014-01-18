@@ -13,6 +13,21 @@ class BannersController extends AbstractActionController
         return new ViewModel();
     }
 
+    public function addAction()
+    {
+        return new ViewModel();
+    }
+
+    public function editAction()
+    {
+        echo $id = (int) $this->params()->fromRoute('id', 0);
+        return new ViewModel();
+    }
+
+    public function deleteAction()
+    {
+        echo $id = (int) $this->params()->fromRoute('id', 0);
+        return new ViewModel();
+    }
 
 }
-

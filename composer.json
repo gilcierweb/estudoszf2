@@ -8,6 +8,7 @@
         }
     ],
     "require": {
-
+        "doctrine/doctrine-orm-module": "0.7.*",
+        "doctrine/doctrine-module": "0.*"
     }
 }

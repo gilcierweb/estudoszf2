@@ -13,7 +13,8 @@ return array(
         'Core',
         'Contato',
         'Album',
-        'Auth'
+        'Auth',
+        'Base'
         ),
     'module_listener_options' => array(
         'module_paths' => array(

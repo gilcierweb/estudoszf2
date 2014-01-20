@@ -12,7 +12,8 @@ return array(
         'Site',
         'Core',
         'Contato',
-        'Album'
+        'Album',
+        'Auth'
         ),
     'module_listener_options' => array(
         'module_paths' => array(

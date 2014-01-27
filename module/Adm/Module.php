@@ -7,6 +7,7 @@ use Adm\Model\Entity\Categorias;
 use Adm\Model\Entity\CategoriasTable;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
+use Adm\Entity\Subcategorias;
 
 class Module
 {
@@ -42,6 +43,9 @@ class Module
             $resultSetPrototype->setArrayObjectPrototype(new Categorias());
             return new TableGateway('categorias', $dbAdapter, null, $resultSetPrototype);
         },
+                'Adm\Service\Subcategorias' => function($em) {
+            return new Subcategorias($em->get('Doctrine\ORM\EntityManager'));
+        }
             ),
         );
     }

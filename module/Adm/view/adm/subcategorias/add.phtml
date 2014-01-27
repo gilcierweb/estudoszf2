@@ -1,0 +1,8 @@
+Module: Adm
+Controller: Subcategorias
+Action: add
+<?php
+echo $this->form()->openTag($form);
+echo $this->formCollection($form->get('CategoriaForm'));
+echo $this->form()->closeTag();
+?>

@@ -55,7 +55,7 @@ abstract class AbstractController extends AbstractActionController
                 } else {
                     $this->flashMessenger()->addErrorMessage('Não foi possivel cadastrar! Tente mais tarde.');
                 }
-                return $this->redirect()->toRoute($this->route, array('controller' => $this->controller));
+                return $this->redirect()->toRoute($this->route, array('controller' => $this->controller, 'action' => 'add'));
             }
         }
 

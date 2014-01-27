@@ -1,0 +1,34 @@
+Comando doctrine
+http://marco-pivetta.com/doctrine-orm-zf2-tutorial/#/26
+
+./vendor/bin/doctrine-module orm:schema-tool:create
+
+vendor/bin/doctrine-module
+
+vendor/bin/doctrine-module --help
+
+Help:
+ The help command displays help for a given command:
+ 
+   php vendor/bin/doctrine-module help list
+ 
+ You can also output the help in other formats by using the --format option:
+ 
+   php vendor/bin/doctrine-module help --format=xml list
+
+php vendor/bin/doctrine-module help list
+
+vendor/bin/doctrine-module orm:convert-mapping 
+
+vendor/bin/doctrine-module orm:convert-mapping 
+
+vendor/bin/doctrine-module orm:convert-mapping --help
+
+vendor/bin/doctrine-module orm:convert-mapping  --filter="Subcategorias" --from-database annotation --namespace="Adm\\Entity\\" module/Adm/src/ 
+
+//gera os metodos get set
+vendor/bin/doctrine-module orm:generate-entities  --filter="Subcategorias"  --generate-annotations="true" --generate-methods="true" module/Adm/src/ 
+
+./vendor/doctrine/doctrine-module/bin/doctrine-module orm:generate-entities ./module/Adm/src/ --generate-annotations=true
+
+

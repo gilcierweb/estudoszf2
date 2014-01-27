@@ -40,13 +40,21 @@
             </div>
         </nav>
         <div class="container">
+            <?php if ($this->success): ?>
+                <div class="alert alert-success"><?php echo $this->success[0]; ?><button class="close" data-dismis="alert">x</button></div>
+            <?php endif; ?>
+
+            <?php if ($this->error): ?>
+                <div class="alert alert-danger"><?php echo $this->error[0]; ?><button class="close" data-dismis="alert">x</button></div>
+            <?php endif; ?>
+
             <?php echo $this->content; ?>
             <hr>
             <footer>
                 <p>&copy; 2005 - <?php echo date('Y') ?> by Zend Technologies Ltd. <?php echo $this->translate('All rights reserved.') ?></p>
             </footer>
         </div> <!-- /container -->
-        
+
         <!-- Scripts -->
         <?php
         echo $this->headScript()

@@ -1,14 +1,8 @@
 {
-    "name": "vendor/zendfw2-1",
-    "description": null,
-    "authors": [
-        {
-            "name": "gilcierweb",
-            "email": "your@email.here"
-        }
-    ],
     "require": {
-        "doctrine/doctrine-orm-module": "0.7.*",
-        "doctrine/doctrine-module": "0.*"
+        "doctrine/doctrine-module": "dev-master",
+        "doctrine/doctrine-orm-module": "dev-master",
+        "zendframework/zftool": "dev-master",
+        "hounddog/doctrine-data-fixture-module": "0.0.*"
     }
 }

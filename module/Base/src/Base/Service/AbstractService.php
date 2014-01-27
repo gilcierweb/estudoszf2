@@ -2,7 +2,7 @@
 
 namespace Base\Service;
 
-//use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManager;
 use Zend\Stdlib\Hydrator\ClassMethods;
 
 abstract class AbstractService

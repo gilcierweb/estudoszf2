@@ -2,17 +2,34 @@
 
 namespace Adm\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
+use Base\Controller\AbstractController;
 use Zend\View\Model\ViewModel;
 
-class SubcategoriasController extends AbstractActionController
+class SubcategoriasController extends AbstractController
 {
 
-    public function indexAction()
+    public function __construct()
     {
-        return new ViewModel();
+        $this->form = 'Adm\Form\CategoriaForm';
+        $this->controller = 'Subcategorias';
+        $this->route = 'adm/subcategorias';
+        $this->service = 'Adm\Service\Subcategorias';
+        $this->entity = 'Adm\Entity\Subcategorias';
     }
 
+//    public function addAction()
+//    {
+//        return new ViewModel();
+//    }
+//
+//    public function editAction()
+//    {
+//        return new ViewModel();
+//    }
+//
+//    public function deleteAction()
+//    {
+//        return new ViewModel();
+//    }
 
 }
-
